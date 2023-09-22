@@ -1,0 +1,51 @@
+<!-- <p>users works!</p> -->
+
+<div class="container mt-2">
+    <div class="row mt-2">
+        <div class="col col-md-4 offset-md-4">
+            <a routerLink="/add-user" class="btn btn-primary">Create User</a>
+        </div>
+    </div>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col" *ngFor="let item of users">
+            <div class="card">
+                <!-- <img src="..." class="card-img-top" alt="..."> -->
+                <div class="card-body">
+                    <h2 class="card-title">{{item.name | titlecase}}</h2>
+                    <p class="card-text">
+                        <b>Skills: </b>{{item.skills}}
+                    </p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><b>Email: </b>{{item.email}}</li>
+                    <li class="list-group-item"><b>Gender: </b>{{item.gender}}</li>
+                    <!-- <li class="list-group-item">A third item</li> -->
+                </ul>
+                <div class="card-body">
+                    <a class="btn btn-primary" [routerLink]="['edit-user', item._id]">Edit</a>
+                    <button type="button" class="btn btn-danger" (click)="openDeletePopup(item._id)">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Warning</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Are you sure to delete the item ?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger" (click)="delete()">Confirm Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>

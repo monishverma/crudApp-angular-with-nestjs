@@ -1,0 +1,24 @@
+<!-- <p>edit-users works!</p> -->
+
+<div class="container mt-2">
+    <legend>Update</legend>
+    <form action="">
+        <div class="mb-3">
+            <label for="Name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="Name" aria-describedby="emailHelp" name="name" [(ngModel)]="users.name">
+        </div>
+        <div class="mb-3">
+            <label for="Email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="Email" aria-describedby="emailHelp" name="email" [(ngModel)]="users.email">
+        </div>
+        <div class="mb-3">
+            <label for="Gender" class="form-label">Gender</label>
+            <input type="text" class="form-control" id="Gender" aria-describedby="emailHelp" name="gender" [(ngModel)]="users.gender">
+        </div>
+        <div class="mb-3">
+            <label for="Skills" class="form-label">Skills</label>
+            <textarea class="form-control" id="Skills" rows="3" name="skills" [(ngModel)]="users.skills"></textarea>
+        </div>
+        <button type="button" class="btn btn-primary" (click)="update()">Update</button>
+    </form>
+</div>
